@@ -1,0 +1,8 @@
+/home/lacrima/moni/collect.rb:1:in `load': cannot load such file -- ./app/controllers/script.rb (LoadError)
+	from /home/lacrima/moni/collect.rb:1:in `<main>'
+/home/lacrima/moni/collect.rb:1:in `load': cannot load such file -- ./app/controllers/script.rb (LoadError)
+	from /home/lacrima/moni/collect.rb:1:in `<main>'
+/home/lacrima/moni/collect.rb:1:in `load': cannot load such file -- ./app/controllers/script.rb (LoadError)
+	from /home/lacrima/moni/collect.rb:1:in `<main>'
+/home/lacrima/moni/collect.rb:1:in `load': cannot load such file -- ./app/controllers/script.rb (LoadError)
+	from /home/lacrima/moni/collect.rb:1:in `<main>'

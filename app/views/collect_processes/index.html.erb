@@ -1,0 +1,33 @@
+<h1>Listing collect_processes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pid</th>
+      <th>User</th>
+      <th>Cpu</th>
+      <th>Mem</th>
+      <th>Command</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collect_processes.each do |collect_process| %>
+      <tr>
+        <td><%= collect_process.Pid %></td>
+        <td><%= collect_process.User %></td>
+        <td><%= collect_process.Cpu %></td>
+        <td><%= collect_process.Mem %></td>
+        <td><%= collect_process.Command %></td>
+        <td><%= link_to 'Show', collect_process %></td>
+        <td><%= link_to 'Edit', edit_collect_process_path(collect_process) %></td>
+        <td><%= link_to 'Destroy', collect_process, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Collect process', new_collect_process_path %>

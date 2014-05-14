@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pid:</strong>
+  <%= @collect_process.Pid %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @collect_process.User %>
+</p>
+
+<p>
+  <strong>Cpu:</strong>
+  <%= @collect_process.Cpu %>
+</p>
+
+<p>
+  <strong>Mem:</strong>
+  <%= @collect_process.Mem %>
+</p>
+
+<p>
+  <strong>Command:</strong>
+  <%= @collect_process.Command %>
+</p>
+
+<%= link_to 'Edit', edit_collect_process_path(@collect_process) %> |
+<%= link_to 'Back', collect_processes_path %>

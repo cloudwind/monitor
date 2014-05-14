@@ -1,0 +1,65 @@
+<%= form_for(@collect_datum) do |f| %>
+  <% if @collect_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@collect_datum.errors.count, "error") %> prohibited this collect_datum from being saved:</h2>
+
+      <ul>
+      <% @collect_datum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :BandwidthTran %><br>
+    <%= f.number_field :BandwidthTran %>
+  </div>
+  <div class="field">
+    <%= f.label :BandwidthRec %><br>
+    <%= f.number_field :BandwidthRec %>
+  </div>
+  <div class="field">
+    <%= f.label :BandwidthTranP %><br>
+    <%= f.number_field :BandwidthTranP %>
+  </div>
+  <div class="field">
+    <%= f.label :BandwidthRecP %><br>
+    <%= f.number_field :BandwidthRecP %>
+  </div>
+  <div class="field">
+    <%= f.label :CPUTotal %><br>
+    <%= f.text_field :CPUTotal %>
+  </div>
+  <div class="field">
+    <%= f.label :CPUUser %><br>
+    <%= f.text_field :CPUUser %>
+  </div>
+  <div class="field">
+    <%= f.label :CPUSys %><br>
+    <%= f.text_field :CPUSys %>
+  </div>
+  <div class="field">
+    <%= f.label :DiskUsed %><br>
+    <%= f.number_field :DiskUsed %>
+  </div>
+  <div class="field">
+    <%= f.label :DiskFree %><br>
+    <%= f.number_field :DiskFree %>
+  </div>
+  <div class="field">
+    <%= f.label :LoadAVG %><br>
+    <%= f.text_field :LoadAVG %>
+  </div>
+  <div class="field">
+    <%= f.label :MemTotal %><br>
+    <%= f.number_field :MemTotal %>
+  </div>
+  <div class="field">
+    <%= f.label :MemFree %><br>
+    <%= f.number_field :MemFree %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

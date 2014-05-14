@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  BandwidthTran: 1
+  BandwidthRec: 1
+  BandwidthTranP: 1
+  BandwidthRecP: 1
+  CPUTotal: 1.5
+  CPUUser: 1.5
+  CPUSys: 1.5
+  DiskUsed: 1
+  DiskFree: 1
+  LoadAVG: 1.5
+  MemTotal: 1
+  MemFree: 1
+
+two:
+  BandwidthTran: 1
+  BandwidthRec: 1
+  BandwidthTranP: 1
+  BandwidthRecP: 1
+  CPUTotal: 1.5
+  CPUUser: 1.5
+  CPUSys: 1.5
+  DiskUsed: 1
+  DiskFree: 1
+  LoadAVG: 1.5
+  MemTotal: 1
+  MemFree: 1

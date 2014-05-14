@@ -1,0 +1,1 @@
+json.extract! @collect_datum, :id, :BandwidthTran, :BandwidthRec, :BandwidthTranP, :BandwidthRecP, :CPUTotal, :CPUUser, :CPUSys, :DiskUsed, :DiskFree, :LoadAVG, :MemTotal, :MemFree, :created_at, :updated_at

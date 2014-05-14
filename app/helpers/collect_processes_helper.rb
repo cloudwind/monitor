@@ -1,0 +1,2 @@
+module CollectProcessesHelper
+end

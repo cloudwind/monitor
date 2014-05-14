@@ -1,0 +1,256 @@
+now <%=@procs[0]["created_at"] %>
+yes <%=@procs[0]["created_at"].to_time-(1) %>
+
+		<div class="col-lg-6">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            Disk (MB)
+
+                        </div>
+
+                        <!-- /.panel-heading -->
+
+                        <div class="panel-body">
+
+                            <div id="disk-chart"></div>
+
+                        </div>
+
+                        <!-- /.panel-body -->
+
+                    </div>
+
+                    <!-- /.panel -->
+
+                </div>
+
+                <!-- /.col-lg-6 -->
+
+                <div class="col-lg-6">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            Load AVG
+
+                        </div>
+
+                        <!-- /.panel-heading -->
+
+                        <div class="panel-body">
+
+                            <div id="loadavg-chart"></div>
+
+                        </div>
+
+                        <!-- /.panel-body -->
+
+                    </div>
+
+                    <!-- /.panel -->
+
+                </div>
+
+		<div class="col-lg-6">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            CPU
+
+                        </div>
+
+                        <!-- /.panel-heading -->
+
+                        <div class="panel-body">
+
+                            <div id="cpu-chart"></div>
+
+                        </div>
+
+                        <!-- /.panel-body -->
+
+                    </div>
+
+                    <!-- /.panel -->
+
+                </div>
+
+		<div class="col-lg-6">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            Bandwidth (Byte/minute)
+
+                        </div>
+
+                        <!-- /.panel-heading -->
+
+                        <div class="panel-body">
+
+                            <div id="network-chart"></div>
+
+                        </div>
+
+                        <!-- /.panel-body -->
+
+                    </div>
+
+                    <!-- /.panel -->
+
+                </div>
+		
+		<div class="col-lg-6">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            Memory
+
+                        </div>
+
+                        <!-- /.panel-heading -->
+
+                        <div class="panel-body">
+
+                            <div id="mem-chart"></div>
+
+                        </div>
+
+                        <!-- /.panel-body -->
+
+                    </div>
+
+                    <!-- /.panel -->
+
+                </div>
+
+		<div class="col-lg-6">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            Process
+
+                        </div>
+
+                        <!-- /.panel-heading -->
+
+                        <div class="panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Process</th>
+                                            <th>User</th>
+                                            <th>Cpu</th>
+                                            <th>Memory</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+					<% for i in 0..7 %>
+						<tr>
+							<td><%= @procs[i]["Command"] %></td>	
+							<td><%= @procs[i]["User"] %></td>
+							<td><%= @procs[i]["Cpu"] %>%</td>
+							<td><%= @procs[i]["Mem"].to_f%>%</td>
+						</tr>
+					<% end %>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                        <!-- /.panel-body -->
+
+                    </div>
+
+                    <!-- /.panel -->
+
+                </div>
+<script> 
+$(document).ready(function(){
+	Morris.Donut({
+		element: 'disk-chart',
+		data: [
+    			{label: "Disk Used", value: <%= @data[0]["DiskUsed"]%>},
+    			{label: "Disk Free", value: <%= @data[0]["DiskFree"]%>} 
+  		]
+	});
+	Morris.Area({
+  		element: 'loadavg-chart',
+  		data:[
+			<% (@data.count-1).downto(0).each do |i| %>
+			{y: "<%= @data[i]["created_at"]%>",d: <%= @data[i]["LoadAVG"]%> }			
+			<% if i != 0 %>
+			<%= ',' %>
+			<% end %>
+			<% end %>
+  		],
+  		xkey: 'y',
+  		ykeys: ['d'],
+  		labels: ['LoadAVG'],
+		hideHover: 'auto'
+	});
+
+	Morris.Area({
+  		element: 'cpu-chart',
+  		data:[
+			<% (@data.count-1).downto(0).each do |i| %>
+			{y: "<%= @data[i]["created_at"]%>",a: <%= @data[i]["CPUUser"]%>,b: <%= @data[i]["CPUSys"]%> }			
+			<% if i != 0 %>
+			<%= ',' %>
+			<% end %>
+			<% end %>
+  		],
+  		xkey: 'y',
+  		ykeys: ['a','b'],
+  		labels: ['CPU User', 'CPU System'],
+		hideHover: 'auto',
+		ymax: 100
+	});
+	Morris.Area({
+  		element: 'network-chart',
+  		data:[
+			<% (@data.count-1).downto(1).each do |i| %>
+			{y: "<%= @data[i]["created_at"]%>",a: <%= (@data[i-1]["BandwidthTran"].to_i - @data[i]["BandwidthTran"].to_i)/2**10%>,b: <%= (@data[i-1]["BandwidthRec"].to_i - @data[i]["BandwidthRec"].to_i)/2**10%> }			
+			<% if i != 0 %>
+			<%= ',' %>
+			<% end %>
+			<% end %>
+  		],
+  		xkey: 'y',
+  		ykeys: ['a','b'],
+  		labels: ['Bandwidth Transmit', 'Bandwidth Receive'],
+		hideHover: 'auto',
+	});
+});
+	Morris.Area({
+  		element: 'mem-chart',
+  		data:[
+			<% (@data.count-1).downto(0).each do |i| %>
+			{y: "<%= @data[i]["created_at"]%>", b: <%= @data[i]["MemFree"].to_i/2**10%> }			
+			<% if i != 0 %>
+			<%= ',' %>
+			<% end %>
+			<% end %>
+  		],
+  		xkey: 'y',
+  		ykeys: ['b'],
+  		labels: ['Memory Free'],
+		hideHover: 'auto',
+		resize: true
+	});
+</script>

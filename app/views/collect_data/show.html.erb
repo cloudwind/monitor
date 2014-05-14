@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bandwidthtran:</strong>
+  <%= @collect_datum.BandwidthTran %>
+</p>
+
+<p>
+  <strong>Bandwidthrec:</strong>
+  <%= @collect_datum.BandwidthRec %>
+</p>
+
+<p>
+  <strong>Bandwidthtranp:</strong>
+  <%= @collect_datum.BandwidthTranP %>
+</p>
+
+<p>
+  <strong>Bandwidthrecp:</strong>
+  <%= @collect_datum.BandwidthRecP %>
+</p>
+
+<p>
+  <strong>Cputotal:</strong>
+  <%= @collect_datum.CPUTotal %>
+</p>
+
+<p>
+  <strong>Cpuuser:</strong>
+  <%= @collect_datum.CPUUser %>
+</p>
+
+<p>
+  <strong>Cpusys:</strong>
+  <%= @collect_datum.CPUSys %>
+</p>
+
+<p>
+  <strong>Diskused:</strong>
+  <%= @collect_datum.DiskUsed %>
+</p>
+
+<p>
+  <strong>Diskfree:</strong>
+  <%= @collect_datum.DiskFree %>
+</p>
+
+<p>
+  <strong>Loadavg:</strong>
+  <%= @collect_datum.LoadAVG %>
+</p>
+
+<p>
+  <strong>Memtotal:</strong>
+  <%= @collect_datum.MemTotal %>
+</p>
+
+<p>
+  <strong>Memfree:</strong>
+  <%= @collect_datum.MemFree %>
+</p>
+
+<%= link_to 'Edit', edit_collect_datum_path(@collect_datum) %> |
+<%= link_to 'Back', collect_data_path %>

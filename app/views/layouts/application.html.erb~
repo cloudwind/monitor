@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Monitor V0.1</title>
+
+
+
+    <!-- Core CSS - Include with every page -->
+
+    <%= stylesheet_link_tag "bootstrap" , "font-awesome.css","sb-admin" %>
+    <%= javascript_include_tag "jquery-1.10.2.js","bootstrap.min.js" , "jquery.metisMenu.js", "sb-admin.js" , "raphael-2.1.0.min.js" ,"morris.js","jquery.jqplot.js","jquery.jqplot.min.js"%>
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <div id="wrapper">
+
+
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+
+                    <span class="sr-only">Toggle navigation</span>
+
+                    <span class="icon-bar"></span>
+
+                    <span class="icon-bar"></span>
+
+                    <span class="icon-bar"></span>
+
+                </button>
+
+                <a class="navbar-brand" href="/">Monior NORPH V0.1</a>
+
+            </div>
+
+            <!-- /.navbar-header -->
+
+            <div class="navbar-default navbar-static-side" role="navigation">
+
+                <div class="sidebar-collapse">
+
+                    <ul class="nav" id="side-menu">
+
+			<li>
+
+                            <a href="#"> Overview </a>
+
+                        </li>
+
+			<li>
+
+                            <a href="#"> Process </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#"> Network </a>
+
+                        </li>
+                        
+                        <li>
+
+                            <a href="#"> Disk </a>
+
+                        </li>
+
+                        
+
+                    </ul>
+
+                    <!-- /#side-menu -->
+
+                </div>
+
+                <!-- /.sidebar-collapse -->
+
+            </div>
+
+            <!-- /.navbar-static-side -->
+
+        </nav>
+
+
+
+        <div id="page-wrapper">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <h1> Yield Here </h1>
+                    <%= yield %>
+                </div>
+
+                <!-- /.col-lg-12 -->
+
+            </div>
+
+            <!-- /.row -->
+
+        </div>
+
+        <!-- /#page-wrapper -->
+
+
+
+    </div>
+
+    <!-- /#wrapper -->
+
+
+    <!-- Page-Level Plugin Scripts - Blank -->
+
+
+
+    <!-- SB Admin Scripts - Include with every page -->
+
+    
+
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+
+
+
+</body>
+
+
+
+</html>
+

@@ -1,0 +1,37 @@
+<%= form_for(@collect_process) do |f| %>
+  <% if @collect_process.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@collect_process.errors.count, "error") %> prohibited this collect_process from being saved:</h2>
+
+      <ul>
+      <% @collect_process.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Pid %><br>
+    <%= f.number_field :Pid %>
+  </div>
+  <div class="field">
+    <%= f.label :User %><br>
+    <%= f.text_field :User %>
+  </div>
+  <div class="field">
+    <%= f.label :Cpu %><br>
+    <%= f.text_field :Cpu %>
+  </div>
+  <div class="field">
+    <%= f.label :Mem %><br>
+    <%= f.text_field :Mem %>
+  </div>
+  <div class="field">
+    <%= f.label :Command %><br>
+    <%= f.text_field :Command %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

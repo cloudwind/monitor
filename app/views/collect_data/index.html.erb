@@ -1,0 +1,47 @@
+<h1>Listing collect_data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandwidthtran</th>
+      <th>Bandwidthrec</th>
+      <th>Bandwidthtranp</th>
+      <th>Bandwidthrecp</th>
+      <th>Cputotal</th>
+      <th>Cpuuser</th>
+      <th>Cpusys</th>
+      <th>Diskused</th>
+      <th>Diskfree</th>
+      <th>Loadavg</th>
+      <th>Memtotal</th>
+      <th>Memfree</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collect_data.each do |collect_datum| %>
+      <tr>
+        <td><%= collect_datum.BandwidthTran %></td>
+        <td><%= collect_datum.BandwidthRec %></td>
+        <td><%= collect_datum.BandwidthTranP %></td>
+        <td><%= collect_datum.BandwidthRecP %></td>
+        <td><%= collect_datum.CPUTotal %></td>
+        <td><%= collect_datum.CPUUser %></td>
+        <td><%= collect_datum.CPUSys %></td>
+        <td><%= collect_datum.DiskUsed %></td>
+        <td><%= collect_datum.DiskFree %></td>
+        <td><%= collect_datum.LoadAVG %></td>
+        <td><%= collect_datum.MemTotal %></td>
+        <td><%= collect_datum.MemFree %></td>
+        <td><%= link_to 'Show', collect_datum %></td>
+        <td><%= link_to 'Edit', edit_collect_datum_path(collect_datum) %></td>
+        <td><%= link_to 'Destroy', collect_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Collect datum', new_collect_datum_path %>
